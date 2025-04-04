@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple To-Do List</title>
+  <style>
+    body {
+      /*font-family: Arial, sans-serif;
+      padding: 30px;
+      background: pink;*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f4f8;
+      font-family: Arial, sans-serif;
+      background-color: aquamarine;
+      
+    }
+    .cart{
+       
+      background-color: thistle ;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      max-width: 300px;
+       
+        
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+    }
+
+    ul {
+      margin-top: 20px;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      background: #fff;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #ffe6e6;
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart">
+  <h2>Simple To-Do List</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter a task" />
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    function addTask() {
+      var input = document.getElementById("taskInput");
+      var task = input.value.trim();
+
+      if (task !== "") {
+        var li = document.createElement("li");
+        li.textContent = task;
+
+        // Remove task on click
+        li.onclick = function () {
+          li.remove();
+        };
+
+        document.getElementById("taskList").appendChild(li);
+        input.value = ""; // clear input
+      } else {
+        alert("Please enter a task.");
+      }
+    }
+  </script>
+
+</body>
+</html>
